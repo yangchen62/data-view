@@ -1,7 +1,5 @@
 export class Container {
-    constructor(props: any) {
-    }
-    a=()=> {
-        console.log(123)
-    };
+  a = () => {
+      console.log(123);
+  };
 }

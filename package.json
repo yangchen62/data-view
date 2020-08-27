@@ -18,9 +18,10 @@
     }
   },
   "lint-staged": {
-    "*./src/**/*.{js,ts,json,css,less,md}": [
-      "prettier --write",
-      "yarn lint"
+    "src/**": [
+      "prettier --config .prettierrc --write",
+      "eslint --fix",
+      "git add"
     ]
   },
   "repository": {

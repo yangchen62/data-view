@@ -2,7 +2,7 @@ const path = require('path');
 module.exports = {
     parser: '@typescript-eslint/parser',
     extends: [
-        'airbnb',
+        // 'airbnb',
         'plugin:@typescript-eslint/recommended',
     ],
     parserOptions: {

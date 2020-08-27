@@ -5,7 +5,7 @@
   "main": "lib/index.umd.js",
   "module": "lib/index.esm.js",
   "scripts": {
-    "lint": "eslint --ext 'src/**/*.{js,ts}' --fix",
+    "lint": "eslint 'src/**/*.{js,ts}'",
     "dev": "rollup -w -c --environment FORMAT:esm",
     "build:esm": "rollup -c --environment FORMAT:esm",
     "build:umd": "rollup -c --environment FORMAT:umd",
@@ -20,6 +20,7 @@
   "lint-staged": {
     "*./src/**/*.{js,ts,json,css,less,md}": [
       "prettier --write",
+      "eslint --fix",
       "yarn lint"
     ]
   },

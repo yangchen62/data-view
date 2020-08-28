@@ -4,8 +4,9 @@ const {nodeResolve} = require('@rollup/plugin-node-resolve');
 const uglify = require('rollup-plugin-uglify').uglify;
 const merge = require('lodash.merge');
 const pkg = require('./package.json');
+const scss = require('rollup-plugin-scss');
 
-const extensions = ['.js', '.ts'];
+const extensions = ['.js', '.ts','.tsx','.jsx','.json'];
 
 const resolve = function(...args) {
     return path.resolve(__dirname, ...args);
@@ -42,7 +43,11 @@ const mergeConfig = jobs[process.env.FORMAT || 'esm'];
 module.exports = merge(
     {
         input: resolve('./src/index.ts'),
-        output: {},
+        output: {
+            global:{
+                'react':'React',
+            }
+        },
         plugins: [
             nodeResolve({
                 extensions,
@@ -52,7 +57,15 @@ module.exports = merge(
                 exclude: 'node_modules/**',
                 extensions,
             }),
+            scss()
         ],
+        watch: {
+            include: 'src/**',
+            exclude: 'node_modules/**'
+        },
+        server: {
+            port: 7001
+        },
     },
     mergeConfig,
 );

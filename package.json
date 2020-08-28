@@ -1,6 +1,6 @@
 {
-  "name": "data-view",
-  "version": "1.0.0",
+  "name": "screen-visualization",
+  "version": "1.0.4",
   "description": "大屏可视化展示组件库",
   "main": "lib/index.umd.js",
   "module": "lib/index.esm.js",
@@ -40,9 +40,11 @@
   "homepage": "https://github.com/yangchen62/data-view#readme",
   "dependencies": {
     "@babel/preset-react": "^7.10.4",
+    "@types/react": "^16.9.48",
+    "@types/react-dom": "^16.9.8",
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "react": "^16.13.1",
-    "rollup": "^2.26.5"
+    "rollup": "^2.26.5",
+    "rollup-plugin-scss": "^2.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",

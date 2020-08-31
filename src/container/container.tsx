@@ -3,12 +3,12 @@ import { AnyComponent, ObjectType } from '../types';
 // import VisitorCount from "components/VisitorCount";
 
 interface Props {
-    children: Array<Component>;
+    children: Array<AnyComponent>;
     containerStyle: ObjectType;
     size?: number;
     interval?: number;
     showVisitor?: boolean;
-    Map: typeof React.Component;
+    Map?: typeof React.Component;
     OtherNode?: AnyComponent;
 }
 
@@ -79,7 +79,7 @@ export class Container extends Component<Props, State> {
         const { OtherNode, containerStyle, Map } = this.props;
         return (
             <div className={containerStyle.container}>
-                <Map />
+                {Map && <Map />}
                 {this.sliceChildren()}
                 {OtherNode && <OtherNode />}
             </div>

@@ -103,8 +103,6 @@ module.exports = {
                 after: true
             }
         ],
-        // 单行注释必须写在上一行
-        'line-comment-position': 'error',
         // 代码块嵌套的深度禁止超过 5 层
         'max-depth': [
             'error',

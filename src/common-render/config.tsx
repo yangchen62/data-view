@@ -1,4 +1,7 @@
 import React from 'react';
+// @ts-ignore
+import Style from '../container/container.module.scss'; // eslint-disable-line
+
 class Class extends React.Component {
     render() {
         return <div>123</div>;
@@ -6,8 +9,8 @@ class Class extends React.Component {
 }
 
 export default {
-    style: Class,
-    OneMap: Class,
+    style: Style,
+    // OneMap: Class,
     showVisitor: true,
     children: [
         {

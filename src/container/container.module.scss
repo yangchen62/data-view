@@ -1,0 +1,39 @@
+$primary-text-color: white;
+$text-color: rgb(128, 0, 96);
+
+.container {
+    height: 100%;
+    .Wrapper {
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        z-index: 2;
+        height: 100%;
+        width: 29%;
+        position: absolute;
+        top: 0;
+    }
+    .leftWrapper {
+        @extend .Wrapper;
+        left: 0;
+    }
+    .rightWrapper {
+        @extend .Wrapper;
+        right: 0;
+    }
+
+    .item {
+        width: 80%;
+        height: calc(100% / 3);
+    }
+    .itemRight {
+        float: right;
+        @extend .item;
+    }
+    .noBottonPad {
+        padding-bottom: 0px;
+    }
+}
+
+.content {
+    height: calc(100% - 68px);
+}

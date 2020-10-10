@@ -1,15 +1,16 @@
 const path = require("path");
-const argv = require("yargs").argv;  //获取命令行中参数的对象
+const argv = require("yargs").argv;
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 
-const isDev = argv.cfg && argv.cfg === "dev";  //是否为开发模式，如果输入yarn start执行"webpack-dev-server --mode development --cfg dev"，argv.cfg获取参数的值为dev。
+const isDev = argv.cfg && argv.cfg === "dev";
 
 const config = {
     entry: isDev?"./src/dev.tsx":"./src/index.ts",
     output: {
         publicPath: "/dist/",
-        filename: "[name].[hash].js",
+        filename: "[name].[hash:8].js",
         path: path.resolve(__dirname, "dist")
     },
     module: {
@@ -18,6 +19,38 @@ const config = {
                 test: /\.tsx?$/,
                 use: "ts-loader",
                 exclude: /node_modules/
+            },
+            {
+                test: /\.module\.scss$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: "style-loader"
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {  // 启用 css modules, css模块化, 所有类名都默认为当前组件, 或者使用 :global 声明全局样式, 参考 AntDesignPro 的样式引用
+                                localIdentName: '[name]__[local]--[hash:base64:5]',  // 指定样式名
+                                getLocalIdent: getCSSModuleLocalIdent
+                            },
+                        }
+                    },
+                    {
+                        loader: "sass-loader" // 将 Sass 编译成 CSS
+                    },
+                ]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: "style-loader"
+                    },
+                    {
+                        loader: 'css-loader'
+                    },
+                ]
             }
         ]
     },
@@ -37,7 +70,7 @@ const config = {
     resolve: {
         extensions: [".tsx", ".ts", ".js"]
     },
-    devtool: isDev ? "source-map" : false    // 值为source-map时，方便在浏览器中使用react开发工具调试
+    devtool: 'cheap-module-eval-source-map'
 };
 
 if (isDev) {  // 开发模式时，启动web服务

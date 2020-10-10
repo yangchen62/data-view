@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { AnyComponent, ObjectType } from '../types';
 // import VisitorCount from "components/VisitorCount";
+import 'animate.css';
 
 interface Props {
     children: Array<AnyComponent>;
     containerStyle: ObjectType;
     size?: number;
-    interval?: number;
+    timer?: number;
     showVisitor?: boolean;
     Map?: typeof React.Component;
     OtherNode?: AnyComponent;
@@ -37,7 +38,7 @@ export class Container extends Component<Props, State> {
         const { show } = this.state;
         const { children, size = 3 } = this.props;
         const childList = [...children];
-        if (!childList || !childList.length) return;
+        if (!childList?.length) return;
         let { length } = children;
         if (length % 6 !== 0) {
             childList.splice(6, 0, ...childList.slice(0, 3));
@@ -67,9 +68,14 @@ export class Container extends Component<Props, State> {
                 },
                 this.showChange,
             );
-        }, this.props.interval);
+        }, this.props.timer || 100_000);
     };
 
+    /**
+     * 获取样式名称
+     * @param show 是否展示
+     * @param position 展示的位置
+     */
     getClassName = (show: boolean, position: string) =>
         `${this.props.containerStyle[`${position.toLowerCase()}Wrapper`]} ${
             show ? `animate__animated animate__backIn${position}` : `animate__animated animate__backOut${position}`

@@ -2,7 +2,6 @@ const path = require('path');
 module.exports = {
     parser: '@typescript-eslint/parser',
     extends: [
-        // 'airbnb',
         'plugin:@typescript-eslint/recommended',
     ],
     parserOptions: {
@@ -11,6 +10,7 @@ module.exports = {
         ecmaVersion: 2019,
         sourceType: 'module',
     },
+    ignorePatterns:['*.scss'],
     rules: {
         // @fixable 一个缩进必须用四个空格替代
         'indent': [
@@ -275,5 +275,6 @@ module.exports = {
         ],
         // @fixable 表达式必须以分号结尾
         'semi': ['error', 'always'],
+        '@typescript-eslint/ban-ts-comment': 0,
     }
 };

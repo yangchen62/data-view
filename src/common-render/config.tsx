@@ -1,6 +1,6 @@
 import React from 'react';
 // @ts-ignore
-import Style from '../container/container.module.scss'; // eslint-disable-line
+import Style from '../container/container.module.scss';
 
 class Class extends React.Component {
     render() {

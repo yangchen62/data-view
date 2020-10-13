@@ -1,13 +1,12 @@
 import React from 'react';
 // @ts-ignore
-import Style from '../container/container.module.scss';
+import Style from './common.module.scss';
 
 class Class extends React.Component {
     render() {
         return <div>123</div>;
     }
 }
-
 export default {
     style: Style,
     // OneMap: Class,

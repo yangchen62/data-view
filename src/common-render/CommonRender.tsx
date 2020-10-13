@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Container } from '..';
 import { AnyComponent } from '../types';
+// @ts-ignore
+import defaultStyle from './common.module.scss';
 
 interface HProps {
     chartConfig: any;
@@ -48,9 +50,21 @@ function HOC(WrappedComponent: AnyComponent, url: string, timer: number) {
 }
 
 export default class extends Component<{ config: any; timer: number }> {
+    getMergeStyle: any = () => {
+        const { style } = this.props.config;
+        const result = {};
+        Object.keys(Object.assign({}, defaultStyle, style)).map(item => {
+            let newStyle = { [item]: defaultStyle[item] };
+            if (style[item]) newStyle = { [item]: style[item] };
+            if (style[item] && defaultStyle[item]) newStyle = { [item]: `${defaultStyle[item]} ${style[item]}` };
+            Object.assign(result, newStyle);
+        });
+        return result;
+    };
     render() {
         // cssmodule 地图 是否展示浏览人数 需要渲染的子节点
-        const { style, OneMap, showVisitor, children } = this.props.config;
+        const { OneMap, showVisitor, children } = this.props.config;
+        const style: any = this.getMergeStyle();
         return (
             <Container timer={this.props.timer} Map={OneMap} containerStyle={style} showVisitor={showVisitor}>
                 {/* 对于每个子组件遍历渲染 */}

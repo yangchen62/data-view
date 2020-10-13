@@ -12,10 +12,12 @@ $text-color: rgb(128, 0, 96);
         position: absolute;
         top: 0;
     }
+
     .leftWrapper {
         @extend .Wrapper;
         left: 0;
     }
+
     .rightWrapper {
         @extend .Wrapper;
         right: 0;
@@ -25,12 +27,10 @@ $text-color: rgb(128, 0, 96);
         width: 80%;
         height: calc(100% / 3);
     }
+
     .itemRight {
         float: right;
         @extend .item;
-    }
-    .noBottonPad {
-        padding-bottom: 0px;
     }
 }
 

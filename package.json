@@ -46,6 +46,7 @@
     "animate.css": "^4.1.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "enzyme-adapter-react-16": "^1.15.4",
+    "fs": "^0.0.1-security",
     "jest-config": "^26.4.2",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",

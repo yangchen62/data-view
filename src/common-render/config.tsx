@@ -1,10 +1,33 @@
 import React from 'react';
 // @ts-ignore
 import Style from './common.module.scss';
+import Marquee from '../marquee/Marquee';
 
 class Class extends React.Component {
     render() {
-        return <div>123</div>;
+        return (
+            <Marquee>
+                <div>456</div>
+                <div>123</div>
+                <div>123</div>
+                <div>123</div>
+                <div>123</div>
+                <div>123</div>
+                <div>123</div>
+                <div>123</div>
+                <div>123</div>
+                <div>123</div>
+                <div>123</div>
+                <div>123</div>
+                <div>123</div>
+                <div>123</div>
+                <div>123</div>
+                <div>123</div>
+                <div>123</div>
+                <div>123</div>
+                <div>456</div>
+            </Marquee>
+        );
     }
 }
 export default {

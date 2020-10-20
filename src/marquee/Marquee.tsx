@@ -7,7 +7,10 @@ interface State {
 interface RefObject<T> {
     readonly current: T | null;
 }
-
+function toString(target: any) {
+    target.c = true;
+}
+@toString
 export default class extends Component<any, State> {
     constructor(props: Readonly<any>) {
         super(props);

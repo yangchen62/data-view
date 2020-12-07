@@ -27,10 +27,11 @@ export class BarContainer extends React.Component<Props> {
                     children.map((item, index) => {
                         return (
                             <div
-                                className={`cm-data-view-bar-item ${
-                                    typeof itemConfig === 'object' ? itemConfig[index].className : ''
-                                }`}
-                                style={itemConfig && itemConfig[index].style}
+                                className={typeof itemConfig === 'object' ? itemConfig[index].className : ''}
+                                style={Object.assign(
+                                    { flex: `1 0 calc(100% / ${children.length}` },
+                                    itemConfig && itemConfig[index].style,
+                                )}
                             >
                                 {children[index]}
                             </div>

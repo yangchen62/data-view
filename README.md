@@ -13,6 +13,23 @@
     <FullScreenContainer screenWH={{ width: 200, height: 200 }} ></FullScreenContainer>
 ```
 - 内容组件
+```javascript
+    // 左边或者右边的总体容器
+    // 内部的元素会用flex等分整个容器
+    // 可以自定义item的样式等
+    // itemconfig的数量要跟children的数量保持一致
+    <BarContainer
+        itemConfig={[
+            { style: { flex: '1 0 40%' }},
+            { style: { flex: '1 0 40%' }},
+            { style: { flex: '1 0 40%' }},
+        ]}
+    >
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+    </BarContainer>
+```
 - 统一渲染组件
 - 柱状图
 - 饼图

@@ -30,7 +30,7 @@ export const FullScreenContainer = forwardRef((props: Readonly<Props>, ref) => {
     });
 
     return (
-        <div id="cm-data-view-container" className={props.className} style={props.style} ref={domRef}>
+        <div className={`cm-data-view-container ${props.className || ''}`} style={props.style} ref={domRef}>
             {props.children}
         </div>
     );

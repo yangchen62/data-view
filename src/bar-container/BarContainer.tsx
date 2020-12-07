@@ -27,6 +27,7 @@ export class BarContainer extends React.Component<Props> {
                     children.map((item, index) => {
                         return (
                             <div
+                                key={index}
                                 className={typeof itemConfig === 'object' ? itemConfig[index].className : ''}
                                 style={Object.assign(
                                     { flex: `1 0 calc(100% / ${children.length}` },

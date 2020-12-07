@@ -1,2 +1,2 @@
 export { Container } from './container/container';
-export { FullScreenContainer } from './container/FullScreenContainer';
+export { FullScreenContainer } from './full-screen-container/FullScreenContainer';

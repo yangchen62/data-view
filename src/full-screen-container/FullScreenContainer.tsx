@@ -1,13 +1,12 @@
 import React, { useLayoutEffect, forwardRef } from 'react';
 import useAutoResize from '../use/autoResize';
 // @ts-ignore
-import './style.scss';
-import { AnyComponent } from '../types';
+import './FullScreenContainer.scss';
 
 interface Props {
     className?: string;
     style?: React.CSSProperties;
-    children?: AnyComponent;
+    children?: React.ReactNode;
     screenWH?: {
         width: number;
         height: number;

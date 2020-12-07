@@ -24,7 +24,9 @@ export const FullScreenContainer = forwardRef((props: Readonly<Props>, ref) => {
             height: `${height}px`,
         });
 
-        domRef.current.style.transform = `scale(${document.body.clientWidth / window.screen.width})`;
+        const scale = Math.min(window.innerWidth / window.screen.width, window.innerHeight / window.screen.height);
+
+        domRef.current.style.transform = `scale(${scale})`;
     });
 
     return (

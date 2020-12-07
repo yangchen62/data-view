@@ -10,7 +10,7 @@
 ```javascript
     // 作为整个大屏的容器组件，也可以作为某个图表的容器，需要提前设置body等的margin为0，
     // screenWH 支持自定义屏幕宽高，如果不设置将自动取整个屏幕的宽高作为容器的宽高
-    <FullScreenContainer></FullScreenContainer>
+    <FullScreenContainer screenWH={{ width: 200, height: 200 }} ></FullScreenContainer>
 ```
 - 内容组件
 - 统一渲染组件

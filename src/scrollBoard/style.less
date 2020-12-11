@@ -1,0 +1,44 @@
+.cm-scroll-board {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+
+  .text {
+    padding: 0 10px;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .cm-header {
+    display: flex;
+    flex-direction: row;
+    font-size: 15px;
+
+    .cm-header-item {
+      .text;
+      transition: all 0.3s;
+    }
+  }
+
+  .cm-rows {
+    overflow: hidden;
+
+    .cm-row-item {
+      display: flex;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+
+    .cm-ceil {
+      .text;
+    }
+
+    .index {
+      border-radius: 3px;
+      padding: 0px 3px;
+    }
+  }
+}

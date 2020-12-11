@@ -57,6 +57,42 @@ const config = {
                 ]
             },
             {
+                test: /\.module\.less$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: "style-loader"
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {  // 启用 css modules, css模块化, 所有类名都默认为当前组件, 或者使用 :global 声明全局样式, 参考 AntDesignPro 的样式引用
+                                localIdentName: '[name]__[local]--[hash:base64:5]',
+                                getLocalIdent: getCSSModuleLocalIdent
+                            },
+                        }
+                    },
+                    {
+                        loader: "sass-loader" // 将 Sass 编译成 CSS
+                    },
+                ]
+            },
+            {
+                test: /\.less$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: "style-loader"
+                    },
+                    {
+                        loader: 'css-loader',
+                    },
+                    {
+                        loader: "less-loader"
+                    },
+                ]
+            },
+            {
                 test: /\.css$/,
                 use: [
                     {

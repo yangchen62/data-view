@@ -165,11 +165,6 @@ export const ScrollBorad = forwardRef((props: Readonly<Props>, ref) => {
     // if (5 >= rowLength) return
   }, [domRef.current]);
 
-  function headerHight(prop: any) {
-    let { style, config } = props;
-    let height = config.header && typeof Array(config.header) ? config.header.length : 0
-    return style?.height
-  }
   const { mergedConfig, header, rows } = state;
   const { config, style } = props;
   const rowHeght = ((style?.height - (config.headerHeight ? config.headerHeight : 35)) / (config.rowNum ? config.rowNum : 5));

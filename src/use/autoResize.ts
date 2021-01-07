@@ -23,6 +23,10 @@ export default function useAutoResize<T>(ref: Ref<T>) {
 
         // @ts-ignore
         window.addEventListener('resize', debounceSetWHFun);
+        // 手动触发resize事件，否则会导致图表宽高不能正常展示
+        const event = document.createEvent('HTMLEvents');
+        event.initEvent('resize', true, true);
+        window.dispatchEvent(event);
 
         return () => {
             // @ts-ignore
